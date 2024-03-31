@@ -35,5 +35,5 @@ func (m *Scout) Cves(
 	return dag.Container().From(dockerScoutImage).
 		WithEnvVariable("DOCKER_SCOUT_HUB_USER", user).
 		WithSecretVariable("DOCKER_SCOUT_HUB_PASSWORD", password).
-		WithExec([]string{"cves", image})
+		WithExec([]string{"cves", "--exit-code", image})
 }
